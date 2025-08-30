@@ -1,4 +1,12 @@
 import Image from "next/image";
+import "./index.css";
+
+interface PizzaProps {
+  name: string;
+  photoName: string;
+  ingredients: string;
+  price: number;
+}
 
 const pizzaData = [
   {
@@ -46,16 +54,47 @@ const pizzaData = [
 ];
 
 const Header = () => {
-  return <h1>Pizza store</h1>;
-};
-const Pizza = () => {
   return (
-    <>
-      <h1>Pizza Menu</h1>
-      <Image src="/pizzas/focaccia.jpg" alt="image" width={300} height={200} />
-    </>
+    <header className="header">
+      <h1>Pizza store</h1>
+    </header>
   );
 };
+
+const Menu = () => {
+  return (
+    <main className="menu">
+      <h3>Menu</h3>
+
+
+      
+      {/* <Pizza
+        name="pizza spinac"
+        ingredients="Tomato"
+        photoName="/pizzas/focaccia.jpg"
+        price={10}
+      />
+      <Pizza
+        name="pizza spinac0"
+        ingredients="Tomato0"
+        photoName="/pizzas/focaccia.jpg"
+        price={20}
+      /> */}
+    </main>
+  );
+};
+
+const Pizza = (props: PizzaProps) => {
+  //   const style = { color: "red", fontSize: "20px", textDecoration: "underline" };
+  return (
+    <div className="pizza">
+      <h1>{props.name}</h1>
+      <p>${props.price + 3}</p>
+      <Image src={props.photoName} alt={props.name} width={300} height={200} />
+    </div>
+  );
+};
+
 const Footer = () => {
   const hour = new Date().getHours();
   const openHour = 10;
@@ -63,18 +102,19 @@ const Footer = () => {
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
 
-  return <p>{new Date().toLocaleTimeString()} We are open 10am - 12pm</p>;
+  return (
+    <footer className="footer">
+      {new Date().toLocaleTimeString()} We are open 10am - 12pm
+    </footer>
+  );
 };
 
 export default function Homepage() {
   return (
     <section>
-      <div className="container ml-10 ">
+      <div className="container ">
         <Header />
-        <Pizza />
-        <Pizza />
-        <Pizza />
-
+        <Menu />
         <Footer />
       </div>
     </section>
