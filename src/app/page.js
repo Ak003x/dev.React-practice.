@@ -63,7 +63,7 @@ const Menu = () => {
     <main className="menu">
       <h2>Our Menu</h2>
 
-      {numPizzas > 0 ? <ul className="pizzas">  
+      {numPizzas > 0 ? <ul className="pizzas">
         {/* //ternary operator..^^ */}
         {pizzaData.map(pizza => (
           <Pizza pizzaObj={pizza} key={pizza.name} />
@@ -102,9 +102,10 @@ const Pizza = akProps => {
 };
 
 const Footer = () => {
-  const hour = new Date().getHours();
-  const openHour = 10;
-  const closeHour = 22;
+  // const hour = new Date().getHours();
+  const hour = 15; // Setting to 15 to show "We are Open" message
+  const openHour = 10; // Opening at 10 AM
+  const closeHour = 24; // Closing at midnight
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
 
@@ -115,7 +116,7 @@ const Footer = () => {
           <p>We are Open until {closeHour} garb fast!</p>
           <button className="btn">order</button>
         </div>
-      ):<p>Welcome u to the store</p>}
+      ) : <p>Welcome u to the store</p>}
     </footer>
   );
 };
