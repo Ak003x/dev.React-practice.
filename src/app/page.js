@@ -87,15 +87,15 @@ const Menu = () => {
   );
 };
 
-const Pizza = props => {
+const Pizza = akProps => {
   //   const style = { color: "red", fontSixze: "20px", textDecoration: "underline" };
   return (
     <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+      <img src={akProps.pizzaObj.photoName} alt={akProps.pizzaObj.name} />
       <div>
-        <h1>{props.pizzaObj.name}</h1>
-        <h1>{props.pizzaObj.ingredients}</h1>
-        <p>${props.pizzaObj.price}</p>
+        <h1>{akProps.pizzaObj.name}</h1>
+        <h1>{akProps.pizzaObj.ingredients}</h1>
+        <p>${akProps.pizzaObj.price}</p>
       </div>
     </li>
   );
