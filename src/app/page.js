@@ -1,6 +1,6 @@
-
 import Image from "next/image";
-import "./index.css";
+import "./site/index.css";
+
 
 
 
@@ -61,11 +61,7 @@ const Menu = () => {
   return (
     <main className="menu">
       <h3>Menu</h3>
-      <div>
-        {pizzaData.map((pizza) => (
-          <Pizza key={pizza.name} {...pizza} />
-        ))}
-      </div>
+
 
       {/* <Pizza
         name="pizza spinac"
