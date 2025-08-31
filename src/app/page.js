@@ -2,12 +2,7 @@
 import Image from "next/image";
 import "./index.css";
 
-interface PizzaProps {
-  name: string;
-  photoName: string;
-  ingredients: string;
-  price: number;
-}
+
 
 const pizzaData = [
   {
@@ -88,7 +83,7 @@ const Menu = () => {
   );
 };
 
-const Pizza = (props: PizzaProps) => {
+const Pizza = (props) => {
   //   const style = { color: "red", fontSize: "20px", textDecoration: "underline" };
   return (
     <div className="pizza">
