@@ -54,14 +54,22 @@ const Header = () => {
 };
 
 const Menu = () => {
+  const pizzas = pizzaData;
+  // const pizzas =[];
+  const numPizzas = pizzas.length;
+
+
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <ul className="">
+
+      {numPizzas > 0 ? <ul className="pizzas">  
+        {/* //ternary operator..^^ */}
         {pizzaData.map(pizza => (
           <Pizza pizzaObj={pizza} key={pizza.name} />
         ))}
-      </ul>
+      </ul> : <p>We are Working on the Menu.....</p>}
+
 
       {/* <Pizza
         name="pizza spinac"
@@ -102,12 +110,12 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      {isOpen && (
+      {isOpen ? (
         <div className="order">
           <p>We are Open until {closeHour} garb fast!</p>
           <button className="btn">order</button>
         </div>
-      )}
+      ):<p>Welcome u to the store</p>}
     </footer>
   );
 };
