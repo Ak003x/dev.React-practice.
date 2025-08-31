@@ -1,50 +1,46 @@
-import Image from "next/image";
 import "./site/index.css";
-
-
-
 
 const pizzaData = [
   {
     name: "Focaccia",
     ingredients: "Bread with italian olive oil and rosemary",
     price: 6,
-    photoName: "pizzas/focaccia.jpg",
+    photoName: "/pizzas/focaccia.jpg",
     soldOut: false,
   },
   {
     name: "Pizza Margherita",
     ingredients: "Tomato and mozarella",
     price: 10,
-    photoName: "pizzas/margherita.jpg",
+    photoName: "/pizzas/margherita.jpg",
     soldOut: false,
   },
   {
     name: "Pizza Spinaci",
     ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
     price: 12,
-    photoName: "pizzas/spinaci.jpg",
+    photoName: "/pizzas/spinaci.jpg",
     soldOut: false,
   },
   {
     name: "Piza unghi",
     ingredients: "Tomato, mozarella, mushrooms, and onion",
     price: 12,
-    photoName: "pizzas/funghi.jpg",
+    photoName: "/pizzas/funghi.jpg",
     soldOut: false,
   },
   {
     name: "Pizza Salmino",
     ingredients: "Tomato, mozarella, and pepperoni",
     price: 15,
-    photoName: "pizzas/salamino.jpg",
+    photoName: "/pizzas/salamino.jpg",
     soldOut: true,
   },
   {
     name: "Pizza Prosciutto",
     ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
     price: 18,
-    photoName: "pizzas/prosciutto.jpg",
+    photoName: "/pizzas/prosciutto.jpg",
     soldOut: false,
   },
 ];
@@ -60,8 +56,8 @@ const Header = () => {
 const Menu = () => {
   return (
     <main className="menu">
-      <h3>Menu</h3>
-
+      <h2>Our Menu</h2>
+      <div>{pizzaData.map((pizza) => <Pizza pizzaObj={pizza} key={pizza.name} />)}</div>
 
       {/* <Pizza
         name="pizza spinac"
@@ -80,12 +76,14 @@ const Menu = () => {
 };
 
 const Pizza = (props) => {
-  //   const style = { color: "red", fontSize: "20px", textDecoration: "underline" };
+  //   const style = { color: "red", fontSixze: "20px", textDecoration: "underline" };
   return (
     <div className="pizza">
-      <h1>{props.name}</h1>
-      <p>${props.price + 3}</p>
-      <Image src={props.photoName} alt={props.name} width={300} height={200} />
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+      <div>
+        <h1>{props.pizzaObj.name}</h1>
+        <p>${props.pizzaObj.price}</p>
+      </div>
     </div>
   );
 };
