@@ -57,7 +57,7 @@ const Menu = () => {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <div>{pizzaData.map((pizza) => <Pizza pizzaObj={pizza} key={pizza.name} />)}</div>
+      <ul className="">{pizzaData.map((pizza) => <Pizza pizzaObj={pizza} key={pizza.name} />)}</ul>
 
       {/* <Pizza
         name="pizza spinac"
@@ -78,13 +78,14 @@ const Menu = () => {
 const Pizza = (props) => {
   //   const style = { color: "red", fontSixze: "20px", textDecoration: "underline" };
   return (
-    <div className="pizza">
+    <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
       <div>
         <h1>{props.pizzaObj.name}</h1>
+        <h1>{props.pizzaObj.ingredients}</h1>
         <p>${props.pizzaObj.price}</p>
       </div>
-    </div>
+    </li>
   );
 };
 
