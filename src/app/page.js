@@ -59,6 +59,7 @@ const Menu = () => {
   const numPizzas = pizzas.length;
 
 
+
   return (
     <main className="menu">
       <h2>Our Menu</h2>
@@ -89,6 +90,8 @@ const Menu = () => {
 
 const Pizza = akProps => {
   //   const style = { color: "red", fontSixze: "20px", textDecoration: "underline" };
+if(akProps.pizzaObj.soldOut) return null;
+
   return (
     <li className="pizza">
       <img src={akProps.pizzaObj.photoName} alt={akProps.pizzaObj.name} />
@@ -104,11 +107,11 @@ const Pizza = akProps => {
 const Footer = () => {
   // const hour = new Date().getHours();
   const hour = 15; // Setting to 15 to show "We are Open" message
-  const openHour = 10; // Opening at 10 AM
+  const openHour = 14; // Opening at 10 AM
   const closeHour = 24; // Closing at midnight
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
-
+  // if(!isOpen) return <p>Closed</p>; to return something from component
   return (
     <footer className="footer">
       {isOpen ? (
