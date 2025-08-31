@@ -90,7 +90,7 @@ const Menu = () => {
 
 const Pizza = akProps => {
   //   const style = { color: "red", fontSixze: "20px", textDecoration: "underline" };
-if(akProps.pizzaObj.soldOut) return null;
+  if (akProps.pizzaObj.soldOut) return null;
 
   return (
     <li className="pizza">
@@ -107,22 +107,28 @@ if(akProps.pizzaObj.soldOut) return null;
 const Footer = () => {
   // const hour = new Date().getHours();
   const hour = 15; // Setting to 15 to show "We are Open" message
-  const openHour = 14; // Opening at 10 AM
+  const openHour = 12; // Opening at 10 AM
   const closeHour = 24; // Closing at midnight
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
   // if(!isOpen) return <p>Closed</p>; to return something from component
   return (
     <footer className="footer">
-      {isOpen ? (
-        <div className="order">
-          <p>We are Open until {closeHour} garb fast!</p>
-          <button className="btn">order</button>
-        </div>
+      {isOpen ? (<Order end={closeHour} start={openHour} />
       ) : <p>Welcome u to the store</p>}
     </footer>
   );
 };
+
+
+const Order = (props) => {
+  return (
+    <div className="order">
+      <p>We are Open until {props.end} garb fast! and start {props.start}</p>
+      <button className="btn">order</button>
+    </div>
+  )
+}
 
 export default function Homepage() {
   return (
