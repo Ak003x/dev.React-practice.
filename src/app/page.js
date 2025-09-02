@@ -65,8 +65,8 @@ const Menu = () => {
       <h2>Our Menu</h2>
 
       {numPizzas > 0 ?
-        <> 
-        {/* fragments */}
+        <>
+          {/* fragments */}
           <p>Hello</p>
           <ul className="pizzas">
             {/* //ternary operator..^^ */}
@@ -97,15 +97,16 @@ const Menu = () => {
 
 const Pizza = ({ pizzaObj }) => {
   //   const style = { color: "red", fontSixze: "20px", textDecoration: "underline" };
-  if (pizzaObj.soldOut) return null;
+  // if (pizzaObj.soldOut) return null; 
+  // to hide the sellout pizza
 
   return (
-    <li className="pizza">
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" :""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
         <h1>{pizzaObj.name}</h1>
         <h1>{pizzaObj.ingredients}</h1>
-        <p>${pizzaObj.price}</p>
+        <span >{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
     </li>
   );
