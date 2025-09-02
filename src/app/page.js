@@ -64,12 +64,19 @@ const Menu = () => {
     <main className="menu">
       <h2>Our Menu</h2>
 
-      {numPizzas > 0 ? <ul className="pizzas">
-        {/* //ternary operator..^^ */}
-        {pizzaData.map(pizza => (
-          <Pizza pizzaObj={pizza} key={pizza.name} />
-        ))}
-      </ul> : <p>We are Working on the Menu.....</p>}
+      {numPizzas > 0 ?
+        <> 
+        {/* fragments */}
+          <p>Hello</p>
+          <ul className="pizzas">
+            {/* //ternary operator..^^ */}
+            {pizzaData.map(pizza => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+
+          </ul>
+        </>
+        : <p>We are Working on the Menu.....</p>}
 
 
       {/* <Pizza
@@ -77,13 +84,13 @@ const Menu = () => {
         ingredients="Tomato"
         photoName="/pizzas/focaccia.jpg"
         price={10}
-      />
-      <Pizza
+        />
+        <Pizza
         name="pizza spinac0"
         ingredients="Tomato0"
         photoName="/pizzas/focaccia.jpg"
         price={20}
-      /> */}
+        /> */}
     </main>
   );
 };
