@@ -121,7 +121,7 @@ const Footer = () => {
 };
 
 
-const Order = ({end,start}) => {
+const Order = ({ end, start }) => {
   return (
     <div className="order">
       <p>We are Open until {end} garb fast! and start {start}</p>
