@@ -88,17 +88,17 @@ const Menu = () => {
   );
 };
 
-const Pizza = akProps => {
+const Pizza = ({ pizzaObj }) => {
   //   const style = { color: "red", fontSixze: "20px", textDecoration: "underline" };
-  if (akProps.pizzaObj.soldOut) return null;
+  if (pizzaObj.soldOut) return null;
 
   return (
     <li className="pizza">
-      <img src={akProps.pizzaObj.photoName} alt={akProps.pizzaObj.name} />
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h1>{akProps.pizzaObj.name}</h1>
-        <h1>{akProps.pizzaObj.ingredients}</h1>
-        <p>${akProps.pizzaObj.price}</p>
+        <h1>{pizzaObj.name}</h1>
+        <h1>{pizzaObj.ingredients}</h1>
+        <p>${pizzaObj.price}</p>
       </div>
     </li>
   );
@@ -121,10 +121,10 @@ const Footer = () => {
 };
 
 
-const Order = (props) => {
+const Order = ({end,start}) => {
   return (
     <div className="order">
-      <p>We are Open until {props.end} garb fast! and start {props.start}</p>
+      <p>We are Open until {end} garb fast! and start {start}</p>
       <button className="btn">order</button>
     </div>
   )
